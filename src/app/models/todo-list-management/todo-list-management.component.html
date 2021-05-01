@@ -1,3 +1,11 @@
-<app-todo-list>
-</app-todo-list>
+<div class="page-container">
+    <div class="header"> Todo List Board</div>
+    <button>新建</button>
+    <div class="list">
+        <app-todo-list [status]='TaskStatus.label' *ngFor="let taskStatus of TaskStatusList">
+        </app-todo-list>
+    </div>
+</div>
+
+
 
