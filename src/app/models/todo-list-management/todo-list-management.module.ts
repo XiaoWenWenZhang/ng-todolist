@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { TodoListManagementRoutingModule } from './todo-list-management-routing.module';
 import { TodoListManagementComponent } from './todo-list-management.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 
 @NgModule({
   declarations: [
-    TodoListManagementComponent
+    TodoListManagementComponent,
+    TodoListComponent
   ],
   imports: [
     CommonModule,
