@@ -5,7 +5,6 @@ import { TodoListManagementRoutingModule } from './todo-list-management-routing.
 import { TodoListManagementComponent } from './todo-list-management.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 
-
 @NgModule({
   declarations: [
     TodoListManagementComponent,

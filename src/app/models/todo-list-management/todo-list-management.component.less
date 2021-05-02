@@ -1,7 +1,16 @@
+@import '../../styles/variables.less';
+
 .page-container {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 30px 20px;
+    .header {
+        color: @title-text-color;
+        margin: 0 auto;
+    }
+    .create-btn {
+        margin: 0 20px 10px 20px;
+    }
     .list {
         display: flex;
         justify-content: space-between;

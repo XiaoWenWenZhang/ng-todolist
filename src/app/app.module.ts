@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { TodoListManagementModule } from './models/todo-list-management/todo-list-management.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { NgZorroAntdModule } from './ng-zorro-antd.module';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     TodoListManagementModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    NgZorroAntdModule,
+    NzButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

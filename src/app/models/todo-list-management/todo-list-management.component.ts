@@ -13,7 +13,6 @@ export class TodoListManagementComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-      this.TaskStatusList.map(item=>console.log(item.label));
   }
 
 }
