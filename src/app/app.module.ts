@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoListManagementModule } from './models/todo-list-management/todo-list-management.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { NgZorroAntdModule } from './ng-zorro-antd.module';
-import { NzButtonModule } from 'ng-zorro-antd/button';
+import { MockInterceptor } from './core/interceptors/mock.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,10 +21,10 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
     TodoListManagementModule,
     RouterModule,
     FormsModule,
-    NgZorroAntdModule,
-    NzButtonModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: MockInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

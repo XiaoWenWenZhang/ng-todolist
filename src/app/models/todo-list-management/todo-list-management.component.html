@@ -4,7 +4,7 @@
         <button nz-button nzType="primary">新建</button>
     </div>
     <div class="list">
-        <app-todo-list [status]='TaskStatus.label' *ngFor="let taskStatus of TaskStatusList">
+        <app-todo-list [status]='taskStatus.label' *ngFor="let taskStatus of TaskStatusList">
         </app-todo-list>
     </div>
 </div>
