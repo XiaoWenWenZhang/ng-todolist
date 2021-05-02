@@ -5,6 +5,7 @@ import { TodoListManagementRoutingModule } from './todo-list-management-routing.
 import { TodoListManagementComponent } from './todo-list-management.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import {  TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
   imports: [
     CommonModule,
     TodoListManagementRoutingModule,
-    NzButtonModule
+    NzButtonModule,
+    TranslateModule
   ],
   exports: [TodoListManagementComponent]
 })
