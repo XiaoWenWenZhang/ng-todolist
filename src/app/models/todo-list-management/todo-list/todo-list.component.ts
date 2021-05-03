@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ITask } from 'src/app/core/services/task.service';
+import { ITaskList } from 'src/app/core/services/task.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,7 +7,7 @@ import { ITask } from 'src/app/core/services/task.service';
   styleUrls: ['./todo-list.component.less']
 })
 export class TodoListComponent implements OnInit {
-  @Input() tasks: ITask;
+  @Input() tasks: ITaskList;
   constructor() { }
 
   ngOnInit(): void {

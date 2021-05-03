@@ -1,0 +1,8 @@
+
+
+<nz-card class="task-card" [nzTitle]="task.title" [nzExtra]="extraTemplate">
+    <p>{{task.content}}</p>
+</nz-card>
+  <ng-template #extraTemplate>
+    <i nz-icon nzType="close" nzTheme="outline"></i>
+  </ng-template>

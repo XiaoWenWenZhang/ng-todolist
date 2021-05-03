@@ -47,6 +47,21 @@ export default [
             title: '打游戏',
             content: '王者荣耀的主播吴日天，大家都很熟了，也是一个非常强力的主播，而在新赛季中，吴日天也是定下了一个小目标，那就是冲上全辅助英雄的国标。'
           },
+          {
+            status: '2',
+            title: '点外卖',
+            content: '外卖系统、跑腿平台、同城团购等加上红包、优惠券、大转盘等功能使您的系统更加多彩。'
+          },
+          {
+            status: '1',
+            title: '逛街',
+            content: '出门走起。'
+          },
+          {
+            status: '1',
+            title: '睡觉',
+            content: '八个小时够吗？？？？？'
+          },
     ],
       retCode: 200,
       errorMsg: null,
