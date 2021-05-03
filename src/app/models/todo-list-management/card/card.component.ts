@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ITask } from 'src/app/core/services/task.service';
+import { ITask, TaskService } from 'src/app/core/services/task.service';
 
 @Component({
   selector: 'app-card',
@@ -8,9 +8,15 @@ import { ITask } from 'src/app/core/services/task.service';
 })
 export class CardComponent implements OnInit {
     @Input() task: ITask;
-  constructor() { }
+    showDeleteVisible = false;
+  constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
+  }
+
+  deleteTask(){
+      this.showDeleteVisible = false;
+      this.taskService.deleteTask(this.task.taskId).subscribe(res=>console.log('res',res))
   }
 
 }

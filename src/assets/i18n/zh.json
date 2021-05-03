@@ -1,3 +1,5 @@
 {
-    "task.create": "新建"
+    "task.create": "新建",
+    "task.deleteContent": "删除此任务后不可撤回",
+    "task.deleteTitle": "任务删除"
    }

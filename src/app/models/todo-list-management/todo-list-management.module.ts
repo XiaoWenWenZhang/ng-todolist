@@ -7,6 +7,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 import {  TranslateModule } from '@ngx-translate/core';
 import { CardComponent } from './card/card.component';
 @NgModule({
@@ -21,7 +22,8 @@ import { CardComponent } from './card/card.component';
     NzButtonModule,
     TranslateModule,
     NzCardModule,
-    NzIconModule
+    NzIconModule,
+    NzModalModule
   ],
   exports: [TodoListManagementComponent]
 })

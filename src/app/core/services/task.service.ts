@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 
 const QUERY_TASK_LIST_URL = '/task/list';
+const DELETE_TASK_URL = '/task/delete';
 export interface Response<T> {
     data: T;
     errorMsg: string;
@@ -10,6 +10,7 @@ export interface Response<T> {
 }
 
 export interface ITask {
+    taskId: string;
     status: string;
     title: string;
     content: string;
@@ -29,5 +30,9 @@ export class TaskService {
   queryTaskList(){
       return this.http.post<Response<ITask[] | null >>(QUERY_TASK_LIST_URL,{});
   }
+
+  deleteTask(taskId: string){
+    return this.http.post<Response<void>>(DELETE_TASK_URL,taskId);
+}
 
 }

@@ -11,7 +11,7 @@ import { ITask, ITaskList, TaskService } from 'src/app/core/services/task.servic
 export class TodoListManagementComponent implements OnInit {
   taskStatusList: ITaskList[] = [];
   taskData: ITask[] = [];
-  constructor(private taskService: TaskService,private i18n: TranslateService) {}
+  constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
      this.initTaskList();
