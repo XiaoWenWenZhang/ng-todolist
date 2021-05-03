@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { NzI18nService } from 'ng-zorro-antd/i18n';
-import { TaskStatusList } from 'src/app/constants/task';
-import { TaskService } from 'src/app/core/services/task.service';
+import { TaskStatusMap } from 'src/app/constants/task';
+import { ITask, ITaskList, TaskService } from 'src/app/core/services/task.service';
 
 @Component({
   selector: 'app-todo-list-management',
@@ -11,25 +9,24 @@ import { TaskService } from 'src/app/core/services/task.service';
   styleUrls: ['./todo-list-management.component.less']
 })
 export class TodoListManagementComponent implements OnInit {
-  status='Todo';
-  tasks=[];
-  readonly TaskStatusList=TaskStatusList;
-  param = {
-    value: 'world',
-  };
+  taskStatusList: ITaskList[] = [];
+  taskData: ITask[] = [];
   constructor(private taskService: TaskService,private i18n: TranslateService) {}
 
   ngOnInit(): void {
-      this.taskService.queryTaskList().subscribe(res=>{
-          if(res.retCode === 200) {
-              console.log(res.data);
-          }
-      });
-      this.translate( 'task.create');
+     this.initTaskList();
   }
 
-  translate(name:string){
-  return  this.i18n.get(name).subscribe((res: string) => {console.log('res', res); return res;});
+  initTaskList() {
+    this.taskService.queryTaskList().subscribe(res=>{
+        if(res.retCode === 200) {
+            this.taskData = res.data;
+        }
+    });
+    this.taskStatusList = Object.keys(TaskStatusMap).map(item=>({
+        key: item,
+        label: TaskStatusMap[item],
+        values: this.taskData.filter(data=>data.status===item),
+    }));
   }
-
 }

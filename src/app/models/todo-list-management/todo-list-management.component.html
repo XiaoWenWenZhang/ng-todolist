@@ -4,10 +4,9 @@
         <button nz-button nzType="primary">{{'task.create' | translate}}</button>
     </div>
     <div class="list">
-        <app-todo-list [status]='taskStatus.label' *ngFor="let taskStatus of TaskStatusList">
+        <app-todo-list [tasks]='tasks' *ngFor="let tasks of taskStatusList">
         </app-todo-list>
     </div>
-    <div>{{'task.create' | translate}}</div>
 </div>
 
 

@@ -1,7 +1,7 @@
 export enum TaskStatusType {
-    Todo = 0,
-    Doing = 1,
-    Done = 2
+    Todo = '0',
+    Doing = '1',
+    Done = '2'
 }
 
 export const TaskStatusMap = {
@@ -19,12 +19,8 @@ export interface ISelectOption<T> {
 //     }));
 
 export const TaskStatusList = Object.keys(TaskStatusMap).map(item=>({
-    value:item,
-    label:TaskStatusMap[item],
+    key: item,
+    label: TaskStatusMap[item],
+    values: [],
 }))
     
-export const AuditValueList:Array<ISelectOption< TaskStatusType>>=[
-    {value:TaskStatusType.Todo, label: TaskStatusMap[0]},
-    {value:TaskStatusType.Doing, label: TaskStatusMap[1]},
-
-];
