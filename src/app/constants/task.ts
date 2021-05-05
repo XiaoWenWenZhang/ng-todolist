@@ -21,6 +21,5 @@ export interface ISelectOption<T> {
 export const TaskStatusList = Object.keys(TaskStatusMap).map(item=>({
     key: item,
     label: TaskStatusMap[item],
-    values: [],
 }))
     

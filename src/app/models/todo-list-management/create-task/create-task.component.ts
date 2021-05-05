@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { TaskService } from 'src/app/core/services/task.service';
+import { TaskStatusList } from 'src/app/constants/task';
+import { ITask, TaskService } from 'src/app/core/services/task.service';
 
 @Component({
   selector: 'app-create-task',
@@ -10,9 +11,12 @@ import { TaskService } from 'src/app/core/services/task.service';
 })
 export class CreateTaskComponent implements OnInit {
     taskForm!: FormGroup;
-    @Input() createTaskVisible;
-    @Output() createTaskVisibleChange = new EventEmitter<boolean>();
-    
+    @Input() showVisible;
+    @Input() isEdit = false;
+    @Input() isCreate = false;
+    @Input() task = {} as ITask;
+    @Output() showVisibleChange = new EventEmitter<boolean>();
+    readonly TaskStatusList = TaskStatusList;
     constructor(private fb: FormBuilder,private taskService: TaskService, private nzMessageService: NzMessageService) {
     }
   
@@ -24,10 +28,10 @@ export class CreateTaskComponent implements OnInit {
     }
 
     createTask(): void {
-        if(!this.taskForm.valid) {
-            console.log('11');
-            return;
-        }
+        // if(!this.taskForm.valid) {
+        //     console.log('11');
+        //     return;
+        // }
         console.log('mm',this.taskForm)
         const params = {
             status: '0',
@@ -42,8 +46,8 @@ export class CreateTaskComponent implements OnInit {
     }
 
     concelCreateTask(){
-        this.createTaskVisible = false;
-        this.createTaskVisibleChange.emit(false);
+        this.showVisible = false;
+        this.showVisibleChange.emit(false);
     }
 
 }

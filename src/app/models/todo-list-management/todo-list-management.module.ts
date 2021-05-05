@@ -15,12 +15,13 @@ import { CardComponent } from './card/card.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 @NgModule({
   declarations: [
     TodoListManagementComponent,
     TodoListComponent,
     CardComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +36,7 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
     NzMessageModule,
     ReactiveFormsModule,
     NzInputModule,
+    NzSelectModule,
   ],
   exports: [TodoListManagementComponent]
 })

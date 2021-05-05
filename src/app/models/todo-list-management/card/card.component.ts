@@ -9,6 +9,7 @@ import { ITask, TaskService } from 'src/app/core/services/task.service';
 export class CardComponent implements OnInit {
     @Input() task: ITask;
     showDeleteVisible = false;
+    editTaskVisible = false;
   constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
@@ -17,6 +18,11 @@ export class CardComponent implements OnInit {
   deleteTask(){
       this.showDeleteVisible = false;
       this.taskService.deleteTask(this.task.taskId).subscribe(res=>console.log('res',res))
+  }
+
+  editTask(){
+      this.editTaskVisible = true;
+      console.log('kkk')
   }
 
 }

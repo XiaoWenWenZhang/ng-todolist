@@ -9,7 +9,7 @@
     </div>
 </div>
 
-<app-create-task *ngIf='createTaskVisible'  [(createTaskVisible)]='createTaskVisible'></app-create-task>
+<app-create-task *ngIf='createTaskVisible'  [(showVisible)]='createTaskVisible' [isCreate] = 'true'></app-create-task>
 
 
 

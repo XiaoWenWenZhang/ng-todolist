@@ -1,4 +1,4 @@
-<nz-card class="task-card" [nzTitle]="task.title" [nzExtra]="extraTemplate">
+<nz-card class="task-card" [nzTitle]="task.title" [nzExtra]="extraTemplate" (dblclick)= 'editTask()'>
     <p>{{task.content}}</p>
 </nz-card>
   <ng-template #extraTemplate let-row>
@@ -13,3 +13,6 @@
         </div>
     </ng-container>
   </nz-modal>
+
+
+<app-create-task *ngIf='editTaskVisible'  [(showVisible)]='editTaskVisible' [isEdit] = 'true' [task] = 'task'></app-create-task>
