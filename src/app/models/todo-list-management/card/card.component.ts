@@ -10,14 +10,25 @@ export class CardComponent implements OnInit {
     @Input() task: ITask;
     showDeleteVisible = false;
     showPreviewVisible = false;
-  constructor(private taskService: TaskService) { }
+    constructor(private taskService: TaskService) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  deleteTask(){
-      this.showDeleteVisible = false;
-      this.taskService.deleteTask(this.task.taskId).subscribe(res=>console.log('res',res))
-  }
+    cancelDelete() {
+        this.showDeleteVisible = false;
+    }
+
+    confirmDelete() {
+        this.showDeleteVisible = false;
+    }
+
+    cancelPreview() {
+        this.showPreviewVisible = false;
+    }
+
+    confirmPreview() {
+        this.showPreviewVisible = false;
+    }
 
 }

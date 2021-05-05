@@ -9,5 +9,7 @@
     "task.namePlaceholder" : "请输入任务名称",
     "task.contentPlaceholder" : "请输入任务内容",
     "task.createSuccess" : "任务创建成功",
-    "task.preview" : "预览"
+    "task.preview" : "预览",
+    "task.edit": "编辑",
+    "task.delete": "删除"
    }

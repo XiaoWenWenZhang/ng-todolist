@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { PreviewTaskComponent } from './preview-task/preview-task.component';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 @NgModule({
   declarations: [
     TodoListManagementComponent,
@@ -24,6 +25,7 @@ import { PreviewTaskComponent } from './preview-task/preview-task.component';
     CardComponent,
     CreateTaskComponent,
     PreviewTaskComponent,
+    DeleteModalComponent,
   ],
   imports: [
     CommonModule,
