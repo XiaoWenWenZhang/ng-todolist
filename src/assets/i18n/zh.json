@@ -11,5 +11,6 @@
     "task.createSuccess" : "任务创建成功",
     "task.preview" : "预览",
     "task.edit": "编辑",
-    "task.delete": "删除"
+    "task.delete": "删除",
+    "task.sure": "确定"
    }

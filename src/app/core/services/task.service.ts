@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 const QUERY_TASK_LIST_URL = 'http://localhost:8082/task/list';
 const DELETE_TASK_URL = 'http://localhost:8082/task/delete';
 const CREATE_TASK_URL = 'http://localhost:8082/task/create';
+const UPDATE_TASK_URL = 'http://localhost:8082/task/update';
 export interface Response<T> {
     data: T;
     errorMsg: string;
@@ -38,6 +39,10 @@ export class TaskService {
 
   createTask(task: ITask) {
       return this.http.post<Response<string>>(CREATE_TASK_URL, task);
+  }
+
+  updateTask(task: ITask) {
+    return this.http.post<Response<string>>(UPDATE_TASK_URL, task);
   }
 
 }

@@ -22,6 +22,7 @@ export class TodoListManagementComponent implements OnInit {
     this.taskService.queryTaskList().subscribe(res=>{
         if(res.retCode === 200) {
             this.taskData = res.data;
+            console.log('ee',this.taskData);
             this.taskStatusList = Object.keys(TaskStatusMap).map(item=>({
                 key: item,
                 label: TaskStatusMap[item],

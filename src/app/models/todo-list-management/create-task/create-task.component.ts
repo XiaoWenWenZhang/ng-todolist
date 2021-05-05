@@ -13,36 +13,36 @@ export class CreateTaskComponent implements OnInit {
     taskForm!: FormGroup;
     @Input() showVisible;
     @Input() isEdit = false;
-    @Input() isCreate = false;
     @Input() task = {} as ITask;
     @Output() showVisibleChange = new EventEmitter<boolean>();
+    @Output() taskChange = new EventEmitter<ITask>();
+
     readonly TaskStatusList = TaskStatusList;
     constructor(private fb: FormBuilder,private taskService: TaskService, private nzMessageService: NzMessageService) {
     }
   
     ngOnInit(): void {
       this.taskForm = this.fb.group({
-        name: ['', [Validators.required, Validators.maxLength(40)]],
-        content: ['', [Validators.required, Validators.maxLength(200)]]
+        name: [this.task.title||'', [Validators.required, Validators.maxLength(40)]],
+        content: [this.task.content||'', [Validators.required, Validators.maxLength(200)]]
       });
     }
 
     createTask(): void {
-        // if(!this.taskForm.valid) {
-        //     console.log('11');
-        //     return;
-        // }
-        console.log('mm',this.taskForm)
+        this.concelCreateTask();
         const params = {
-            status: '0',
+            status: this.task.status || '0',
             title: this.taskForm.value.name,
             content: this.taskForm.value.content
+        } as ITask;
+        console.log('sssss',params);
+        if(this.isEdit) {
+            this.taskChange.emit(params);
+            return;
         }
-        this.taskService.createTask(params).subscribe(res => {
+        this.taskService.createTask(params).subscribe(_ => {            
             this.nzMessageService.success("任务创建成功");
         })
-
-        this.concelCreateTask();
     }
 
     concelCreateTask(){

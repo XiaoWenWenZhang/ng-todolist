@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { TaskStatusList } from 'src/app/constants/task';
 import { ITask, TaskService } from 'src/app/core/services/task.service';
 
@@ -14,10 +15,12 @@ export class PreviewTaskComponent implements OnInit {
     @Output() ok = new EventEmitter<void>();
     readonly TaskStatusList = TaskStatusList;
     showDeleteVisible = false;
-    constructor(private taskService: TaskService) { }
+    editTaskVisible = false;
+    currentStatus = '';
+    constructor(private taskService: TaskService, private nzMessageService: NzMessageService) { }
 
     ngOnInit(): void {
-        console.log('oo',this.task);
+        this.currentStatus = this.task.status;
     }
     concelCreateTask(){
         this.showVisible = false;
@@ -36,5 +39,17 @@ export class PreviewTaskComponent implements OnInit {
     confirmDelete() {
         this.showDeleteVisible = false;
         this.ok.emit();
+    }
+
+    updateTask() {
+        this.showVisible = false;
+        const params = {
+            ...this.task,
+            status: this.currentStatus,
+        };
+        console.log("aa",params);
+        this.taskService.updateTask(params).subscribe(_ => {
+            this.nzMessageService.success("任务修改成功");
+        })
     }
 }

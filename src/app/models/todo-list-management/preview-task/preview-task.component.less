@@ -30,11 +30,15 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
-        button {
-            width: 74px;
+        
+        button,.status-select {
+            width: 80px;
+            margin-bottom: 20px;
         }
-        .status-select {
-            margin: 20px 0;
+        button {
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 }
