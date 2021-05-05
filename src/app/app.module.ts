@@ -6,13 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoListManagementModule } from './models/todo-list-management/todo-list-management.module';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { MockInterceptor } from './core/interceptors/mock.interceptor';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-
 registerLocaleData(zh);
 @NgModule({
   declarations: [
@@ -26,6 +25,7 @@ registerLocaleData(zh);
     TodoListManagementModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
         loader: {
           provide: TranslateLoader,

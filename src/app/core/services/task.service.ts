@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const QUERY_TASK_LIST_URL = '/task/list';
-const DELETE_TASK_URL = '/task/delete';
+const QUERY_TASK_LIST_URL = 'http://localhost:8082/task/list';
+const DELETE_TASK_URL = 'http://localhost:8082/task/delete';
+const CREATE_TASK_URL = 'http://localhost:8082/task/create';
 export interface Response<T> {
     data: T;
     errorMsg: string;
@@ -10,7 +11,7 @@ export interface Response<T> {
 }
 
 export interface ITask {
-    taskId: string;
+    taskId?: string;
     status: string;
     title: string;
     content: string;
@@ -32,7 +33,11 @@ export class TaskService {
   }
 
   deleteTask(taskId: string){
-    return this.http.post<Response<void>>(DELETE_TASK_URL,taskId);
-}
+    return this.http.post<Response<void>>(DELETE_TASK_URL,{taskId});
+  }
+
+  createTask(task: ITask) {
+      return this.http.post<Response<string>>(CREATE_TASK_URL, task);
+  }
 
 }

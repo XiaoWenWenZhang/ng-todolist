@@ -8,13 +8,19 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
 import {  TranslateModule } from '@ngx-translate/core';
 import { CardComponent } from './card/card.component';
+import { CreateTaskComponent } from './create-task/create-task.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 @NgModule({
   declarations: [
     TodoListManagementComponent,
     TodoListComponent,
-    CardComponent
+    CardComponent,
+    CreateTaskComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +29,12 @@ import { CardComponent } from './card/card.component';
     TranslateModule,
     NzCardModule,
     NzIconModule,
-    NzModalModule
+    NzModalModule,
+    NzFormModule,
+    FormsModule,
+    NzMessageModule,
+    ReactiveFormsModule,
+    NzInputModule,
   ],
   exports: [TodoListManagementComponent]
 })

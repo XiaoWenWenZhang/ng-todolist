@@ -1,0 +1,27 @@
+@import '../../../styles/variables.less';
+
+.create-task {
+    nz-input-group {
+        width: 340px;
+    }
+    ::ng-deep .ant-form-item-control-input-content {
+        display: flex;
+        align-items: center;
+    }
+    .btn-group {
+        margin-bottom: 0;
+        display: flex;
+        justify-content: flex-end;
+       ::ng-deep .ant-form-item-control-input-content {
+           display: flex;
+           justify-content: flex-end;
+        }
+        button {
+            margin-right: 4px;
+        }
+    }
+    .input-length {
+        margin-left: 4px;
+        color: @gray-color;
+    }
+}

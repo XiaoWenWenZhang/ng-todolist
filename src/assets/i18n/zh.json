@@ -1,5 +1,12 @@
 {
     "task.create": "新建",
     "task.deleteContent": "删除此任务后不可撤回",
-    "task.deleteTitle": "任务删除"
+    "task.deleteTitle": "任务删除",
+    "task.errorNameIsNullTip": "任务名称不能为空",
+    "task.errorNameOver40Tip": "任务名称长度不能超过40",
+    "task.errorContentIsNullTip": "任务内容不能为空",
+    "task.errorontentIsNullTip": "任务内容长度不能超过200",
+    "task.namePlaceholder" : "请输入任务名称",
+    "task.contentPlaceholder" : "请输入任务内容",
+    "task.createSuccess" : "任务创建成功"
    }

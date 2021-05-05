@@ -1,13 +1,16 @@
 <div class="page-container">
     <h1 class="header"> Todo List Board</h1>
     <div class="create-btn">
-        <button nz-button nzType="primary">{{'task.create' | translate}}</button>
+        <button nz-button nzType="primary" (click)='createTaskVisible = true'>{{'task.create' | translate}}</button>
     </div>
     <div class="list">
         <app-todo-list [tasks]='tasks' *ngFor="let tasks of taskStatusList">
         </app-todo-list>
     </div>
 </div>
+
+<app-create-task *ngIf='createTaskVisible'  [(createTaskVisible)]='createTaskVisible'></app-create-task>
+
 
 
 
