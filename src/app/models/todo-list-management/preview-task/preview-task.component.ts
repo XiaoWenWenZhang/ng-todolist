@@ -27,7 +27,7 @@ export class PreviewTaskComponent implements OnInit {
         this.cancel.emit();
     }
     deleteTask() {
-        this.taskService.deleteTask(this.task.taskId).subscribe(res=>console.log('res',res));
+        this.taskService.deleteTask(this.task.taskId).subscribe(res => console.log('res',res));
         this.concelCreateTask();
     }
 

@@ -1,6 +1,6 @@
 <div class="todo-list" *ngIf='tasks'>
     <div class="title">{{tasks.label}}</div>
-    <div>
+    <div class="card-list">
         <app-card [task]='task' *ngFor="let task of tasks.values"></app-card>
     </div>
 </div>

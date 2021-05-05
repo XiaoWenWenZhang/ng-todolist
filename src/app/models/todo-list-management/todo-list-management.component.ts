@@ -20,13 +20,14 @@ export class TodoListManagementComponent implements OnInit {
 
   initTaskList() {
     this.taskService.queryTaskList().subscribe(res=>{
+        console.log('re',res);
         if(res.retCode === 200) {
             this.taskData = res.data;
             console.log('ee',this.taskData);
             this.taskStatusList = Object.keys(TaskStatusMap).map(item=>({
                 key: item,
                 label: TaskStatusMap[item],
-                values: this.taskData.filter(data=>data.status===item),
+                values: this.taskData.filter(data => data.status === item),
             }));
         }
     });

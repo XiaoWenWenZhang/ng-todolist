@@ -12,18 +12,18 @@ export class DeleteModalComponent implements OnInit {
     @Output() cancel  = new EventEmitter<boolean>(); 
     @Output() ok = new EventEmitter<boolean>(); 
     // @Output() showDeleteVisibleChange = new EventEmitter<boolean>(); 
-  constructor(private taskService: TaskService) { }
+    constructor(private taskService: TaskService) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  cancelDelete() {
-    this.cancel.emit();
-  }
+    cancelDelete() {
+        this.cancel.emit();
+    }
 
-  deleteTask(){
-    this.ok.emit();
-    this.taskService.deleteTask(this.task.taskId).subscribe(res=>console.log('res',res))
-}
+    deleteTask(){
+        this.ok.emit();
+        this.taskService.deleteTask(this.task.taskId).subscribe(res => console.log('res',res))
+    }
 
 }
