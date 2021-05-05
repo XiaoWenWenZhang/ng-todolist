@@ -1,0 +1,20 @@
+<nz-modal nzClassName='preview-modal' nzWidth='800px' [nzTitle]="'task.preview' | translate" [(nzVisible)]="showVisible" (nzOnCancel)="concelCreateTask()" [nzFooter]='null'>
+    <ng-container *nzModalContent>
+        <div class="preview-body">
+            <div class="preview-content">
+                <div class="title">{{task.title}}</div>
+                <div class="content">{{task.content}}</div>
+            </div>
+            <div class="btn-group" >    
+                <button nz-button nzType="primary" (click)='createTask()'>编辑</button>         
+    
+                <nz-select class="status-select" [(ngModel)]="task.status">                 
+                    <nz-option [nzValue]="item.key" [nzLabel]="item.label" *ngFor="let item of TaskStatusList"></nz-option>             
+                </nz-select>   
+                
+                <button nz-button nzType="primary" (click)='createTask()'>删除</button>         
+            </div>
+        </div>
+
+    </ng-container>
+  </nz-modal>
