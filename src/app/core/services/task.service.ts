@@ -38,11 +38,11 @@ export class TaskService {
   }
 
   createTask(task: ITask) {
-      return this.http.post<Response<string>>(CREATE_TASK_URL, task);
+      return this.http.post<Response<void>>(CREATE_TASK_URL, task);
   }
 
   updateTask(task: ITask) {
-    return this.http.post<Response<string>>(UPDATE_TASK_URL, task);
+    return this.http.post<Response<void>>(UPDATE_TASK_URL, task);
   }
 
 }
