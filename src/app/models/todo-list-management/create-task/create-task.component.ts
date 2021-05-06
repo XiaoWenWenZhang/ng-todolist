@@ -11,43 +11,51 @@ import { ITask, TaskService } from 'src/app/core/services/task.service';
   styleUrls: ['./create-task.component.less']
 })
 export class CreateTaskComponent implements OnInit {
-    taskForm!: FormGroup;
     @Input() showVisible;
     @Input() isEdit = false;
     @Input() task = {} as ITask;
     @Output() showVisibleChange = new EventEmitter<boolean>();
     @Output() taskChange = new EventEmitter<ITask>();
+    taskForm: FormGroup;
     readonly TaskStatusList = TaskStatusList;
-    constructor(private fb: FormBuilder,private taskService: TaskService, private nzMessageService: NzMessageService, 
-        private sharedMessageService: SharedMessageService) {
-    }
+    Max_Name_Len = 40;
+    Max_Content_Len = 200;
+
+    constructor(
+        private fb: FormBuilder,
+        private taskService: TaskService, 
+        private nzMessageService: NzMessageService, 
+        private sharedMessageService: SharedMessageService) {}
   
     ngOnInit(): void {
-      this.taskForm = this.fb.group({
-        name: [this.task.title||'', [Validators.required, Validators.maxLength(40)]],
-        content: [this.task.content||'', [Validators.required, Validators.maxLength(200)]]
-      });
+        this.initForm();
+    }
+
+    initForm() {
+        this.taskForm = this.fb.group({
+            name: [this.task.title||'', [Validators.required, Validators.maxLength(40)]],
+            content: [this.task.content||'', [Validators.required, Validators.maxLength(200)]]
+          });
     }
 
     createTask(): void {
-        this.concelCreateTask();
-        const params = {
+        this.handleShowVisible();
+        const currntTask = {
             status: this.task.status || '0',
             title: this.taskForm.value.name,
             content: this.taskForm.value.content
         } as ITask;
-        console.log('sssss',params);
         if(this.isEdit) {
-            this.taskChange.emit(params);
+            this.taskChange.emit(currntTask);
             return;
         }
-        this.taskService.createTask(params).subscribe(_ => { 
+        this.taskService.createTask(currntTask).subscribe(_ => { 
             this.sharedMessageService.sendMessage(true);
             this.nzMessageService.success("任务创建成功");
         })
     }
 
-    concelCreateTask(){
+    handleShowVisible(){
         this.showVisible = false;
         this.showVisibleChange.emit(false);
     }

@@ -7,25 +7,23 @@ import { ITask, TaskService } from 'src/app/core/services/task.service';
   templateUrl: './delete-modal.component.html',
   styleUrls: ['./delete-modal.component.less']
 })
-export class DeleteModalComponent implements OnInit {
+export class DeleteModalComponent {
     @Input() showDeleteVisible = false;
     @Input() task: ITask;
     @Output() cancel  = new EventEmitter<boolean>(); 
     @Output() ok = new EventEmitter<boolean>();
-    constructor(private taskService: TaskService, private sharedMessageService: SharedMessageService) { }
-
-    ngOnInit(): void {
-    }
+    constructor(
+        private taskService: TaskService, 
+        private sharedMessageService: SharedMessageService) { }
 
     cancelDelete() {
         this.cancel.emit();
     }
 
     deleteTask(){
-        this.ok.emit();
-        this.taskService.deleteTask(this.task.taskId).subscribe(res => {
+        this.taskService.deleteTask(this.task.taskId).subscribe(_ => {
+            this.ok.emit();
             this.sharedMessageService.sendMessage(true);
-            console.log('res',res);
         });
     }
 

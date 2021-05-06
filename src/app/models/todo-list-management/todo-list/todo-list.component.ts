@@ -6,12 +6,6 @@ import { ITaskList } from 'src/app/core/services/task.service';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.less']
 })
-export class TodoListComponent implements OnInit {
+export class TodoListComponent {
   @Input() tasks: ITaskList;
-  constructor() { }
-
-  ngOnInit(): void {
-      console.log('ll',this.tasks)
-  }
-
 }

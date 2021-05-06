@@ -18,7 +18,10 @@ export class PreviewTaskComponent implements OnInit {
     showDeleteVisible = false;
     editTaskVisible = false;
     currentStatus = '';
-    constructor(private taskService: TaskService, private nzMessageService: NzMessageService, private sharedMessageService: SharedMessageService) { }
+    constructor(
+        private taskService: TaskService, 
+        private nzMessageService: NzMessageService, 
+        private sharedMessageService: SharedMessageService) { }
 
     ngOnInit(): void {
         this.currentStatus = this.task.status;
@@ -48,7 +51,6 @@ export class PreviewTaskComponent implements OnInit {
             ...this.task,
             status: this.currentStatus,
         };
-        console.log("aa",params);
         this.taskService.updateTask(params).subscribe(_ => {
             this.sharedMessageService.sendMessage(true);
             this.nzMessageService.success("任务修改成功");

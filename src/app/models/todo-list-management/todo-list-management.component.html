@@ -1,7 +1,9 @@
 <div class="page-container">
     <h1 class="header">{{'task.title' | translate}}</h1>
     <div class="create-btn">
-        <button nz-button nzType="primary" (click)='createTaskVisible = true'>{{'task.create' | translate}}</button>
+        <button nz-button nzType="primary" (click)='createTaskVisible = true'>
+            {{'task.create' | translate}}
+        </button>
     </div>
     <div class="list">
         <app-todo-list [tasks]='tasks' *ngFor="let tasks of taskStatusList">

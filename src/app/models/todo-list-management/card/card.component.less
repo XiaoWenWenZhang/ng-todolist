@@ -2,5 +2,14 @@
 
 .task-card {
     width: 400px;
+    height: 300px;
     margin-top: 20px;
+    ::ng-deep {
+        .ant-card-extra {
+            margin-left: 10px;
+        }
+        .ant-card-body p {
+            word-break: break-word;
+        }
+    }
 }

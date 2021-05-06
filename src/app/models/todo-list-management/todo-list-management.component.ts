@@ -14,7 +14,9 @@ export class TodoListManagementComponent implements OnInit, OnDestroy{
   taskData: ITask[] = [];
   createTaskVisible = false;
   subscript: Subscription;
-  constructor(private taskService: TaskService, private sharedMessageService: SharedMessageService) {}
+  constructor(
+      private taskService: TaskService, 
+      private sharedMessageService: SharedMessageService) {}
 
   ngOnInit(): void {
      this.queryTaskList();
@@ -26,9 +28,7 @@ export class TodoListManagementComponent implements OnInit, OnDestroy{
   queryTaskList() {
     this.taskService.queryTaskList().subscribe(res=>{
         if(res.retCode === 200) {
-            console.log('re',res);
             this.taskData = res.data;
-                console.log('ee',this.taskData);
                 this.taskStatusList = Object.keys(TaskStatusMap).map(item=>({
                     key: item,
                     label: TaskStatusMap[item],

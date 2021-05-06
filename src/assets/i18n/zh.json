@@ -13,5 +13,8 @@
     "task.edit": "编辑",
     "task.delete": "删除",
     "task.sure": "确定",
-    "task.title": "Todo List Board"
+    "task.title": "Todo List Board",
+    "task.name": "Name",
+    "task.content": "Content",
+    "task.concel": "取消"
    }
