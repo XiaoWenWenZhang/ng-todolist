@@ -13,10 +13,6 @@ export interface ISelectOption<T> {
     value : T;
     label : string;
 }
-// export const TaskStatus: ISelectOption< TaskStatusType >[] =Object.keys(TaskStatusMap).map((key : TaskStatusType)=>({
-// 		value : key,
-// 		label : TaskStatusMap[key],
-//     }));
 
 export const TaskStatusList = Object.keys(TaskStatusMap).map(item=>({
     key: item,

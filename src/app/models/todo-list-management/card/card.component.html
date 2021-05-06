@@ -1,11 +1,11 @@
-<nz-card class="task-card" [nzTitle]="task.title" [nzExtra]="extraTemplate" (dblclick)= 'showPreviewVisible = true'>
+<nz-card class="task-card" [nzTitle]="task.title" [nzExtra]="deleteIconTemplate" (dblclick)= 'previewModalVisible = true'>
     <p>{{task.content}}</p>
 </nz-card>
 
-<ng-template #extraTemplate let-row>
-<i nz-icon nzType="close" nzTheme="outline" (click)='showDeleteVisible=true'></i>
+<ng-template #deleteIconTemplate let-row>
+    <i nz-icon nzType="close" nzTheme="outline" (click)='deleteModalVisible=true'></i>
 </ng-template>
 
-<app-delete-modal (ok)="confirmDelete()" (cancel)="cancelDelete()" [(showDeleteVisible)]='showDeleteVisible' [task]='task'></app-delete-modal>
+<app-delete-modal (ok)="confirmDelete()" (cancel)="cancelDelete()" [(deleteModalVisible)]='deleteModalVisible' [task]='task'></app-delete-modal>
 
-<app-preview-task (ok)="confirmPreview()" (cancel)="cancelPreview()" [(showVisible)] = 'showPreviewVisible' [task] = 'task'></app-preview-task>
+<app-preview-task (ok)="confirmPreview()" (cancel)="cancelPreview()" [(showVisible)] = 'previewModalVisible' [task] = 'task'></app-preview-task>

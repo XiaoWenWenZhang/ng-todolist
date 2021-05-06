@@ -10,10 +10,10 @@
                     {{'task.edit' | translate}}
                  </button>             
                 <nz-select class="status-select" [(ngModel)]="currentStatus">                 
-                    <nz-option [nzValue]="item.key" [nzLabel]="item.label" *ngFor="let item of TaskStatusList">
+                    <nz-option *ngFor="let item of TaskStatusList" [nzValue]="item.key" [nzLabel]="item.label">
                     </nz-option>             
                 </nz-select>                  
-                <button nz-button nzType="primary" (click)='showDeleteVisible = true'>
+                <button nz-button nzType="primary" (click)='deleteModalVisible = true'>
                     {{'task.delete' | translate}}
                 </button>         
                 <button nz-button nzType="primary" (click)='updateTask()'>
@@ -30,7 +30,7 @@
 </app-create-task>
 
 <app-delete-modal 
-    [(showDeleteVisible)]='showDeleteVisible' 
+    [(deleteModalVisible)]='deleteModalVisible' 
     (ok)="confirmDelete()" 
     (cancel)="cancelDelete()" 
     [task]='task'>

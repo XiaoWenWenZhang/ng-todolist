@@ -5,15 +5,15 @@
               <nz-form-label  nzRequired >{{'task.name' | translate}}</nz-form-label>
               <nz-form-control  [nzErrorTip]="nameErrorTpl">
                   <nz-input-group [nzSuffix]="nameSuffixTpl" class="ant-input-affix-wrapper-textarea-with-clear-btn">
-                      <textarea
-                          nz-input
-                          formControlName="name" 
-                          id="name"
-                          [placeholder]="'task.namePlaceholder' | translate"
-                          [nzAutosize]="{ minRows: 1, maxRows: 2 }"
-                  ></textarea>
+                    <textarea
+                        nz-input
+                        formControlName="name" 
+                        id="name"
+                        [placeholder]="'task.namePlaceholder' | translate"
+                        [nzAutosize]="{ minRows: 1, maxRows: 2 }"
+                    ></textarea>
                   </nz-input-group>
-                  <div class="input-length">{{taskForm.value.name?.length || 0}}/Max_Name_Len</div>      
+                  <div class="input-length">{{taskForm.value.name?.length || 0}}/{{ Max_Name_Len }}</div>      
                   <ng-template #nameSuffixTpl>
                       <i nz-icon class="ant-input-clear-icon" nzTheme="fill" nzType="close-circle" *ngIf="name" (click)="name = ''"></i>
                   </ng-template>
@@ -39,7 +39,7 @@
                           [nzAutosize]="{ minRows: 1, maxRows: 8 }"
                       ></textarea>
                   </nz-input-group>
-                  <div class="input-length">{{taskForm.value.content?.length || 0}}/Max_Content_Len</div>  
+                  <div class="input-length">{{taskForm.value.content?.length || 0}}/{{ Max_Content_Len }}</div>  
                   <ng-template #contentSuffixTpl>
                       <i nz-icon class="ant-input-clear-icon" nzTheme="fill" nzType="close-circle" *ngIf="content" (click)="content = ''"></i>
                   </ng-template>

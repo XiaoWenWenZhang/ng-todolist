@@ -7,8 +7,6 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'todolistDemo';
-
   constructor(public i18n: TranslateService) {
     i18n.addLangs(["zh", "en"]);
     i18n.setDefaultLang('zh');

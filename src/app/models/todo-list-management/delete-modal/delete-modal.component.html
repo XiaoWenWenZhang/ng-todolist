@@ -1,4 +1,4 @@
-<nz-modal [(nzVisible)]="showDeleteVisible" [nzTitle]="'task.deleteTitle' | translate" (nzOnCancel)="cancelDelete()" (nzOnOk)="deleteTask()">
+<nz-modal [(nzVisible)]="deleteModalVisible" [nzTitle]="'task.deleteTitle' | translate" (nzOnCancel)="cancelDelete()" (nzOnOk)="deleteTask()">
     <ng-container *nzModalContent>
         <div class="delete-modal">
             <i nz-icon nzType="exclamation-circle" nzTheme="outline" class="warning-icon"></i>

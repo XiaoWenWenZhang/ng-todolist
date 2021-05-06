@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { Subscription } from 'rxjs';
 import { TaskStatusMap } from 'src/app/constants/task';
 import { SharedMessageService } from 'src/app/core/services/shared-message.service';
@@ -12,15 +13,16 @@ import { ITask, ITaskList, TaskService } from 'src/app/core/services/task.servic
 export class TodoListManagementComponent implements OnInit, OnDestroy{
   taskStatusList: ITaskList[] = [];
   taskData: ITask[] = [];
-  createTaskVisible = false;
-  subscript: Subscription;
+  createModalVisible = false;
+  sharedMessageSubscription: Subscription;
   constructor(
       private taskService: TaskService, 
-      private sharedMessageService: SharedMessageService) {}
+      private sharedMessageService: SharedMessageService,
+      private nzMessageService: NzMessageService) {}
 
   ngOnInit(): void {
      this.queryTaskList();
-     this.subscript = this.sharedMessageService.getMessage().subscribe(res => {
+     this.sharedMessageSubscription = this.sharedMessageService.getMessage().subscribe(res => {
          this.queryTaskList();
      })
   }
@@ -34,11 +36,13 @@ export class TodoListManagementComponent implements OnInit, OnDestroy{
                     label: TaskStatusMap[item],
                     values: this.taskData.filter(data => data.status === item),
                 }));
+        }else {
+            this.nzMessageService.error(res.errorMsg || 'TodoList列表查询失败');
         }
     });
   }
 
   ngOnDestroy() {
-    this.subscript.unsubscribe();
+    this.sharedMessageSubscription.unsubscribe();
   }
 }

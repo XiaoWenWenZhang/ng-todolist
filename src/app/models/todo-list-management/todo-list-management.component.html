@@ -1,17 +1,17 @@
 <div class="page-container">
     <h1 class="header">{{'task.title' | translate}}</h1>
-    <div class="create-btn">
-        <button nz-button nzType="primary" (click)='createTaskVisible = true'>
+    <div class="operate-btn-container">
+        <button nz-button nzType="primary" (click)='createModalVisible = true'>
             {{'task.create' | translate}}
         </button>
     </div>
     <div class="list">
-        <app-todo-list [tasks]='tasks' *ngFor="let tasks of taskStatusList">
+        <app-todo-list *ngFor="let tasks of taskStatusList" [tasks]='tasks'>
         </app-todo-list>
     </div>
 </div>
 
-<app-create-task *ngIf='createTaskVisible'  [(showVisible)]='createTaskVisible'></app-create-task>
+<app-create-task *ngIf = 'createModalVisible' [(showVisible)]='createModalVisible'></app-create-task>
 
 
 

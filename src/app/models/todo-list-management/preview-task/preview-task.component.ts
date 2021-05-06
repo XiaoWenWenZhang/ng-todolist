@@ -15,9 +15,10 @@ export class PreviewTaskComponent implements OnInit {
     @Output() cancel = new EventEmitter<void>();
     @Output() ok = new EventEmitter<void>();
     readonly TaskStatusList = TaskStatusList;
-    showDeleteVisible = false;
+    deleteModalVisible = false;
     editTaskVisible = false;
     currentStatus = '';
+    taskId = '';
     constructor(
         private taskService: TaskService, 
         private nzMessageService: NzMessageService, 
@@ -25,23 +26,20 @@ export class PreviewTaskComponent implements OnInit {
 
     ngOnInit(): void {
         this.currentStatus = this.task.status;
+        this.taskId = this.task.id;
     }
     concelCreateTask(){
         this.showVisible = false;
         this.cancel.emit();
     }
-    deleteTask() {
-        this.taskService.deleteTask(this.task.id).subscribe(res => console.log('res',res));
-        this.concelCreateTask();
-    }
 
     cancelDelete() {
-        this.showDeleteVisible = false;
+        this.deleteModalVisible = false;
         this.cancel.emit();
     }
 
     confirmDelete() {
-        this.showDeleteVisible = false;
+        this.deleteModalVisible = false;
         this.ok.emit();
     }
 
@@ -49,8 +47,9 @@ export class PreviewTaskComponent implements OnInit {
         this.showVisible = false;
         const params = {
             ...this.task,
+            id: this.taskId,
             status: this.currentStatus,
-        };
+        } as ITask;
         this.taskService.updateTask(params).subscribe(_ => {
             this.sharedMessageService.sendMessage(true);
             this.nzMessageService.success("任务修改成功");

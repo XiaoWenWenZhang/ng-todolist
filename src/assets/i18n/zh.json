@@ -16,5 +16,6 @@
     "task.title": "Todo List Board",
     "task.name": "Name",
     "task.content": "Content",
-    "task.concel": "取消"
+    "task.concel": "取消",
+    "task.deleteSuccess": "任务删除成功"
    }

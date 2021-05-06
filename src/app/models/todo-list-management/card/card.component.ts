@@ -8,23 +8,23 @@ import { ITask, TaskService } from 'src/app/core/services/task.service';
 })
 export class CardComponent {
     @Input() task: ITask;
-    showDeleteVisible = false;
-    showPreviewVisible = false;
+    deleteModalVisible = false;
+    previewModalVisible = false;
 
     cancelDelete() {
-        this.showDeleteVisible = false;
+        this.deleteModalVisible = false;
     }
 
     confirmDelete() {
-        this.showDeleteVisible = false;
+        this.deleteModalVisible = false;
     }
 
     cancelPreview() {
-        this.showPreviewVisible = false;
+        this.previewModalVisible = false;
     }
 
     confirmPreview() {
-        this.showPreviewVisible = false;
+        this.previewModalVisible = false;
     }
 
 }
