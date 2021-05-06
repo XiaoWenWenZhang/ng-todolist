@@ -12,7 +12,7 @@ export interface Response<T> {
 }
 
 export interface ITask {
-    taskId?: string;
+    id?: string;
     status: string;
     title: string;
     content: string;
@@ -33,8 +33,8 @@ export class TaskService {
       return this.http.post<Response<ITask[] | null >>(QUERY_TASK_LIST_URL,{});
   }
 
-  deleteTask(taskId: string){
-    return this.http.post<Response<void>>(DELETE_TASK_URL,{taskId});
+  deleteTask(id: string){
+    return this.http.post<Response<void>>(DELETE_TASK_URL,{id});
   }
 
   createTask(task: ITask) {

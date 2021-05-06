@@ -21,7 +21,8 @@ export class DeleteModalComponent {
     }
 
     deleteTask(){
-        this.taskService.deleteTask(this.task.taskId).subscribe(_ => {
+        console.log('task',this.task);
+        this.taskService.deleteTask(this.task.id).subscribe(_ => {
             this.ok.emit();
             this.sharedMessageService.sendMessage(true);
         });
