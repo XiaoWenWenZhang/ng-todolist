@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { TaskStatusList } from 'src/app/constants/task';
+import { SharedMessageService } from 'src/app/core/services/shared-message.service';
 import { ITask, TaskService } from 'src/app/core/services/task.service';
 
 @Component({
@@ -16,9 +17,9 @@ export class CreateTaskComponent implements OnInit {
     @Input() task = {} as ITask;
     @Output() showVisibleChange = new EventEmitter<boolean>();
     @Output() taskChange = new EventEmitter<ITask>();
-
     readonly TaskStatusList = TaskStatusList;
-    constructor(private fb: FormBuilder,private taskService: TaskService, private nzMessageService: NzMessageService) {
+    constructor(private fb: FormBuilder,private taskService: TaskService, private nzMessageService: NzMessageService, 
+        private sharedMessageService: SharedMessageService) {
     }
   
     ngOnInit(): void {
@@ -40,7 +41,8 @@ export class CreateTaskComponent implements OnInit {
             this.taskChange.emit(params);
             return;
         }
-        this.taskService.createTask(params).subscribe(_ => {            
+        this.taskService.createTask(params).subscribe(_ => { 
+            this.sharedMessageService.sendMessage(true);
             this.nzMessageService.success("任务创建成功");
         })
     }

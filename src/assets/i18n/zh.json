@@ -12,5 +12,6 @@
     "task.preview" : "预览",
     "task.edit": "编辑",
     "task.delete": "删除",
-    "task.sure": "确定"
+    "task.sure": "确定",
+    "task.title": "Todo List Board"
    }

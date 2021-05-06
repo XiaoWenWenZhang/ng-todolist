@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { TaskStatusList } from 'src/app/constants/task';
+import { SharedMessageService } from 'src/app/core/services/shared-message.service';
 import { ITask, TaskService } from 'src/app/core/services/task.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class PreviewTaskComponent implements OnInit {
     showDeleteVisible = false;
     editTaskVisible = false;
     currentStatus = '';
-    constructor(private taskService: TaskService, private nzMessageService: NzMessageService) { }
+    constructor(private taskService: TaskService, private nzMessageService: NzMessageService, private sharedMessageService: SharedMessageService) { }
 
     ngOnInit(): void {
         this.currentStatus = this.task.status;
@@ -49,6 +50,7 @@ export class PreviewTaskComponent implements OnInit {
         };
         console.log("aa",params);
         this.taskService.updateTask(params).subscribe(_ => {
+            this.sharedMessageService.sendMessage(true);
             this.nzMessageService.success("任务修改成功");
         })
     }

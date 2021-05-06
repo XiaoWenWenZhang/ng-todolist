@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ITask, TaskService } from 'src/app/core/services/task.service';
 
 @Component({
@@ -10,7 +10,7 @@ export class CardComponent implements OnInit {
     @Input() task: ITask;
     showDeleteVisible = false;
     showPreviewVisible = false;
-    constructor(private taskService: TaskService) { }
+    constructor() { }
 
     ngOnInit(): void {
     }
