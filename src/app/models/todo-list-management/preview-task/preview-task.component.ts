@@ -19,12 +19,14 @@ export class PreviewTaskComponent implements OnInit {
     editTaskVisible = false;
     currentStatus = '';
     taskId = '';
+    oldTask: ITask;
     constructor(
         private taskService: TaskService, 
         private nzMessageService: NzMessageService, 
         private sharedMessageService: SharedMessageService) { }
 
     ngOnInit(): void {
+        this.oldTask = this.task;
         this.currentStatus = this.task.status;
         this.taskId = this.task.id;
     }
@@ -50,9 +52,25 @@ export class PreviewTaskComponent implements OnInit {
             id: this.taskId,
             status: this.currentStatus,
         } as ITask;
+        if(this.isEqual(this.oldTask,params)) {
+            this.cancel.emit();
+            return;
+        }
         this.taskService.updateTask(params).subscribe(_ => {
             this.sharedMessageService.sendMessage(true);
             this.nzMessageService.success("任务修改成功");
         })
+    }
+
+    isEqual(task1: ITask, task2: ITask) {
+        if(Object.keys(task1).length !== Object.keys(task2).length){
+            return false;
+        }
+        for(var item in task1){
+            if(task1[item] !== task2[item]){
+                return false;
+            }
+        }
+        return true;
     }
 }
