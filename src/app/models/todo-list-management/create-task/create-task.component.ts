@@ -1,10 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { TaskStatusList } from 'src/app/constants/task';
 import { SharedMessageService } from 'src/app/core/services/shared-message.service';
 import { ITask, TaskService } from 'src/app/core/services/task.service';
-
 @Component({
   selector: 'app-create-task',
   templateUrl: './create-task.component.html',
@@ -19,7 +17,7 @@ export class CreateTaskComponent implements OnInit {
     taskForm: FormGroup;
     Max_Name_Len = 40;
     Max_Content_Len = 200;
-
+    modalTitle = '';
     constructor(
         private fb: FormBuilder,
         private taskService: TaskService, 
@@ -27,13 +25,14 @@ export class CreateTaskComponent implements OnInit {
         private sharedMessageService: SharedMessageService) {}
   
     ngOnInit(): void {
+        this.modalTitle = this.isEdit ? 'task.edit': 'task.create';
         this.initForm();
     }
 
     initForm() {
         this.taskForm = this.fb.group({
-            name: [this.task.title || '', [Validators.required, Validators.maxLength(40)]],
-            content: [this.task.content || '', [Validators.required, Validators.maxLength(200)]]
+            name: [this.task.title || '', [Validators.required, Validators.maxLength(this.Max_Name_Len)]],
+            content: [this.task.content || '', [Validators.required, Validators.maxLength(this.Max_Content_Len)]]
           });
     }
 

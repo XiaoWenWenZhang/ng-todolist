@@ -1,4 +1,4 @@
-<nz-modal class="create-modal" nzWidth='600px' [nzTitle]="'task.create' | translate" [(nzVisible)]="showVisible" (nzOnCancel)="handleShowVisible()" [nzFooter]='null'>
+<nz-modal class="create-modal" nzWidth='600px' [nzTitle]=" modalTitle | translate" [(nzVisible)]="showVisible" (nzOnCancel)="handleShowVisible()" [nzFooter]='null'>
     <ng-container *nzModalContent>
         <form class="create-task" nz-form [formGroup]="taskForm" >
             <nz-form-item class="item-name">
@@ -55,7 +55,7 @@
             </nz-form-item>
             <nz-form-item nz-row class="btn-group">
               <nz-form-control>
-                <button nz-button nzType="primary" (click)='createTask()'>{{'task.sure' | translate}}</button>
+                <button nz-button nzType="primary" (click)='createTask()' [disabled]='!taskForm.valid'>{{'task.sure' | translate}}</button>
                 <button nz-button nzType="default" (click)='handleShowVisible()'>{{'task.concel' | translate}}</button>
               </nz-form-control>
             </nz-form-item>
