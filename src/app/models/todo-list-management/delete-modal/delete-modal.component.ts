@@ -23,7 +23,6 @@ export class DeleteModalComponent {
     }
 
     deleteTask(){
-        console.log('task',this.task);
         this.taskService.deleteTask(this.task.id).subscribe(res => {
             if(res.retCode === 200) {
                 this.ok.emit();

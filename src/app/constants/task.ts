@@ -9,10 +9,6 @@ export const TaskStatusMap = {
     [TaskStatusType.Doing] : 'Doing',
     [TaskStatusType.Done] : 'Done'
 }
-export interface ISelectOption<T> {
-    value : T;
-    label : string;
-}
 
 export const TaskStatusList = Object.keys(TaskStatusMap).map(item=>({
     key: item,

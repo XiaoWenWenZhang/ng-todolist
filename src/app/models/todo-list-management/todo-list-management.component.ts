@@ -23,7 +23,9 @@ export class TodoListManagementComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
      this.queryTaskList();
      this.sharedMessageSubscription = this.sharedMessageService.getMessage().subscribe(res => {
-         this.queryTaskList();
+         if(res) {
+            this.queryTaskList();
+         }  
      })
   }
 

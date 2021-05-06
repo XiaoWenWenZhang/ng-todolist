@@ -27,7 +27,6 @@ export class CreateTaskComponent implements OnInit {
         private sharedMessageService: SharedMessageService) {}
   
     ngOnInit(): void {
-        console.log('11',this.task);
         this.initForm();
     }
 
