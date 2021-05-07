@@ -29,17 +29,14 @@ export class PreviewTaskComponent implements OnInit {
         this.currentStatus = this.task.status;
     }
     concelCreateTask(){
-        this.showVisible = false;
         this.cancel.emit();
     }
 
     cancelDelete() {
-        this.deleteModalVisible = false;
         this.cancel.emit();
     }
 
     confirmDelete() {
-        this.deleteModalVisible = false;
         this.ok.emit();
     }
 
