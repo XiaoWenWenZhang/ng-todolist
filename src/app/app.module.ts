@@ -12,6 +12,7 @@ import zh from '@angular/common/locales/zh';
 import { MockInterceptor } from './core/interceptors/mock.interceptor';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 registerLocaleData(zh);
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ registerLocaleData(zh);
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    NzButtonModule,
     TranslateModule.forRoot({
         loader: {
           provide: TranslateLoader,

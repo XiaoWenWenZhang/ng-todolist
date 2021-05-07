@@ -1,0 +1,23 @@
+{
+    "task.create": "Create",
+    "task.deleteContent": "Deleting this task is not revocable",
+    "task.deleteTitle": "Delete the task",
+    "task.errorNameIsNullTip": "The task name cannot be empty",
+    "task.errorNameOver40Tip": "The task name cannot be longer than 40",
+    "task.errorContentIsNullTip": "The task name cannot be null",
+    "task.errorontentIsNullTip": "The task content length cannot exceed 200",
+    "task.namePlaceholder" : "Please enter a task name",
+    "task.contentPlaceholder" : "Please enter the task contents",
+    "task.createSuccess" : "Task created successfully",
+    "task.preview" : "Preview",
+    "task.edit": "Edit",
+    "task.delete": "Delete",
+    "task.sure": "Sure",
+    "task.title": "Todo List Board",
+    "task.name": "Name",
+    "task.content": "Contents",
+    "task.concel": "Concel",
+    "task.deleteSuccess": "Task deleted successfully",
+    "task.chinese": "Chinese",
+    "task.english": "English"
+}

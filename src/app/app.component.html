@@ -1,1 +1,9 @@
+<div class="btn-groups">
+    <button nz-button nzType="primary" (click)="setLanguage('zh')">
+        {{'task.chinese' | translate}}
+    </button>
+    <button nz-button nzType="default" (click)="setLanguage('en')">
+        {{'task.english' | translate}}
+    </button>
+</div>
 <router-outlet></router-outlet>
