@@ -13,7 +13,6 @@ export class CreateTaskComponent implements OnInit {
     @Input() isEdit = false;
     @Input() task = {} as ITask;
     @Output() showVisibleChange = new EventEmitter<boolean>();
-    @Output() taskChange = new EventEmitter<ITask>();
     taskForm: FormGroup;
     Max_Name_Len = 40;
     Max_Content_Len = 200;
@@ -44,14 +43,19 @@ export class CreateTaskComponent implements OnInit {
             title: this.taskForm.value.name,
             content: this.taskForm.value.content
         } as ITask;
-        if(this.isEdit) {
-            this.taskChange.emit(currentTask);
-            return;
+        if(!this.isEdit) {
+            this.taskService.createTask(currentTask).subscribe(_ => { 
+                this.sharedMessageService.sendMessage(true);
+                this.nzMessageService.success("任务创建成功");
+            })  
+        }else {
+            if(!(this.task.title === this.taskForm.value.name && this.task.content === this.taskForm.value.content)) {
+                this.taskService.updateTask(currentTask).subscribe(_ => {
+                    this.sharedMessageService.sendMessage(true);
+                    this.nzMessageService.success("任务修改成功");
+                })  
+            }
         }
-        this.taskService.createTask(currentTask).subscribe(_ => { 
-            this.sharedMessageService.sendMessage(true);
-            this.nzMessageService.success("任务创建成功");
-        })
     }
 
     handleShowVisible(){
