@@ -16,9 +16,8 @@ export class PreviewTaskComponent implements OnInit {
     @Output() ok = new EventEmitter<void>();
     readonly TaskStatusList = TaskStatusList;
     deleteModalVisible = false;
-    editTaskVisible = false;
+    editModalVisible = false;
     currentStatus = '';
-    taskId = '';
     oldTask: ITask;
     constructor(
         private taskService: TaskService, 
@@ -28,7 +27,6 @@ export class PreviewTaskComponent implements OnInit {
     ngOnInit(): void {
         this.oldTask = this.task;
         this.currentStatus = this.task.status;
-        this.taskId = this.task.id;
     }
     concelCreateTask(){
         this.showVisible = false;
@@ -49,7 +47,6 @@ export class PreviewTaskComponent implements OnInit {
         this.showVisible = false;
         const params = {
             ...this.task,
-            id: this.taskId,
             status: this.currentStatus,
         } as ITask;
         if(this.isEqual(this.oldTask,params)) {

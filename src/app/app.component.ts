@@ -14,6 +14,4 @@ export class AppComponent {
     const browserLang = i18n.getBrowserLang();
     i18n.use(browserLang.match(/zh|en/) ? browserLang : 'zh');
     };
- 
-  
 }

@@ -39,6 +39,7 @@ export class CreateTaskComponent implements OnInit {
     createTask(): void {
         this.handleShowVisible();
         const currentTask = {
+            ...this.task,
             status: this.task.status || '0',
             title: this.taskForm.value.name,
             content: this.taskForm.value.content

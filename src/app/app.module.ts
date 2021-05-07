@@ -32,7 +32,7 @@ registerLocaleData(zh);
           useFactory: HttpLoaderFactory,
           deps: [HttpClient],
         }
-      }),
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MockInterceptor, multi: true }

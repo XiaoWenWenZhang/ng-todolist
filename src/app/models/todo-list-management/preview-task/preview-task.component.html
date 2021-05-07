@@ -6,7 +6,7 @@
                 <div class="content">{{task.content}}</div>
             </div>
             <div class="btn-group" >    
-                <button nz-button nzType="primary" (click)='editTaskVisible = true'>
+                <button nz-button nzType="primary" (click)='editModalVisible = true'>
                     {{'task.edit' | translate}}
                  </button>             
                 <nz-select class="status-select" [(ngModel)]="currentStatus">                 
@@ -25,7 +25,7 @@
 </nz-modal>
 
 <app-create-task 
-    [(showVisible)]='editTaskVisible' 
+    [(showVisible)]='editModalVisible' 
     [(task)]='task' [isEdit]= 'true'>
 </app-create-task>
 
