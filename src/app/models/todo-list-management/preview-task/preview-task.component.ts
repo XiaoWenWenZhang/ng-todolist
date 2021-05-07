@@ -33,7 +33,7 @@ export class PreviewTaskComponent implements OnInit {
     }
 
     cancelDelete() {
-        this.cancel.emit();
+        this.deleteModalVisible = false;
     }
 
     confirmDelete() {
