@@ -6,6 +6,6 @@
     <i nz-icon nzType="close" nzTheme="outline" (click)='deleteModalVisible=true'></i>
 </ng-template>
 
-<app-delete-modal (ok)="confirmDelete()" (cancel)="cancelDelete()" [(deleteModalVisible)]='deleteModalVisible' [task]='task'></app-delete-modal>
+<app-delete-modal *ngIf = 'deleteModalVisible' (ok)="confirmDelete()" (cancel)="cancelDelete()" [(deleteModalVisible)]='deleteModalVisible' [task]='task'></app-delete-modal>
 
-<app-preview-task (ok)="confirmPreview()" (cancel)="cancelPreview()" [(showVisible)] = 'previewModalVisible' [task] = 'task'></app-preview-task>
+<app-preview-task *ngIf = 'previewModalVisible' (ok)="confirmPreview()" (cancel)="cancelPreview()" [(showVisible)] = 'previewModalVisible' [task] = 'task'></app-preview-task>
