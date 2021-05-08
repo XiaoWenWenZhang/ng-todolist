@@ -3,7 +3,7 @@
         <div class="preview-body">
             <div class="preview-content">
                 <div class="title">{{task.title}}</div>
-                <div class="content">{{task.content}}</div>
+                <pre class="content">{{task.content}}</pre>
             </div>
             <div class="btn-group" >    
                 <button nz-button nzType="primary" (click)='editModalVisible = true'>
@@ -25,6 +25,7 @@
 </nz-modal>
 
 <app-create-task 
+    *ngIf = 'editModalVisible'
     [(showVisible)]='editModalVisible' 
     [(task)]='task' 
     [isEdit]= 'true'>
