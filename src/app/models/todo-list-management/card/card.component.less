@@ -2,14 +2,17 @@
 
 .task-card {
     width: 400px;
-    height: 300px;
     margin-top: 20px;
     ::ng-deep {
         .ant-card-extra {
             margin-left: 10px;
         }
-        .ant-card-body p {
-            word-wrap:break-word
+        .ant-card-body pre {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
         }
     }
 }
