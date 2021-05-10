@@ -20,6 +20,7 @@
                         formControlName="name" 
                         id="name"
                         [placeholder]="'task.namePlaceholder' | translate"
+                        [nzAutosize]="{ minRows: 1, maxRows: 2 }"
                     ></textarea>
                   </nz-input-group>
                   <div class="input-length">
@@ -55,8 +56,8 @@
                     class="ant-input-affix-wrapper-textarea-with-clear-btn">
                       <textarea
                           nz-input
-                          formControlName="content" 
                           id="content"
+                          formControlName="content" 
                           [placeholder]="'task.contentPlaceholder' | translate"
                       ></textarea>
                   </nz-input-group>

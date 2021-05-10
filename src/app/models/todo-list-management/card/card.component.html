@@ -3,9 +3,7 @@
     [nzTitle]="task.title" 
     [nzExtra]="deleteIconTemplate" 
     (dblclick)= 'previewModalVisible = true'>
-    <pre >
-        {{task.content}}
-    </pre>
+    <pre >{{task.content}}</pre>
 </nz-card>
 
 <ng-template #deleteIconTemplate let-row>

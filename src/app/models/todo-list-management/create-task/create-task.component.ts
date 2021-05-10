@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { SharedMessageService } from 'src/app/core/services/shared-message.service';
@@ -24,7 +24,7 @@ export class CreateTaskComponent implements OnInit, AfterViewInit {
         private sharedMessageService: SharedMessageService) {}
     ngAfterViewInit(): void {
         const conEle: HTMLInputElement = document.querySelector('#content');
-        conEle.setAttribute("rows",conEle.value.split('\n').length.toString());       
+        conEle.setAttribute("rows",conEle.value.split('\n').length.toString()); 
     }
 
     ngOnInit(): void {
