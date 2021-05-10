@@ -14,24 +14,24 @@ export class CreateTaskComponent implements OnInit {
     @Input() task = {} as ITask;
     @Output() showVisibleChange = new EventEmitter<boolean>();
     taskForm: FormGroup;
-    Max_Name_Len = 40;
-    Max_Content_Len = 200;
+    MAX_NAME_LEN = 40;
+    MAX_CONTENT_LEN = 200;
     modalTitle = '';
     constructor(
         private fb: FormBuilder,
-        private taskService: TaskService, 
-        private nzMessageService: NzMessageService, 
+        private taskService: TaskService,
+        private nzMessageService: NzMessageService,
         private sharedMessageService: SharedMessageService) {}
-  
+
     ngOnInit(): void {
-        this.modalTitle = this.isEdit ? 'task.edit': 'task.create';
+        this.modalTitle = this.isEdit ? 'task.edit' : 'task.create';
         this.initForm();
     }
 
     initForm() {
         this.taskForm = this.fb.group({
-            name: [this.task.title || '', [Validators.required, Validators.maxLength(this.Max_Name_Len)]],
-            content: [this.task.content || '', [Validators.required, Validators.maxLength(this.Max_Content_Len)]]
+            name: [this.task.title || '', [Validators.required, Validators.maxLength(this.MAX_NAME_LEN)]],
+            content: [this.task.content || '', [Validators.required, Validators.maxLength(this.MAX_CONTENT_LEN)]]
           });
     }
 
@@ -43,22 +43,22 @@ export class CreateTaskComponent implements OnInit {
             title: this.taskForm.value.name,
             content: this.taskForm.value.content
         } as ITask;
-        if(!this.isEdit) {
-            this.taskService.createTask(currentTask).subscribe(_ => { 
+        if( !this.isEdit ) {
+            this.taskService.createTask(currentTask).subscribe(_ => {
                 this.sharedMessageService.sendMessage(true);
-                this.nzMessageService.success("任务创建成功");
-            })  
+                this.nzMessageService.success('任务创建成功');
+            });
         }else {
-            if(!(this.task.title === this.taskForm.value.name && this.task.content === this.taskForm.value.content)) {
+            if( !(this.task.title === this.taskForm.value.name && this.task.content === this.taskForm.value.content )) {
                 this.taskService.updateTask(currentTask).subscribe(_ => {
                     this.sharedMessageService.sendMessage(true);
-                    this.nzMessageService.success("任务修改成功");
-                })  
+                    this.nzMessageService.success('任务修改成功');
+                });
             }
         }
     }
 
-    handleShowVisible(){
+    handleShowVisible() {
         this.showVisible = false;
         this.showVisibleChange.emit(false);
     }

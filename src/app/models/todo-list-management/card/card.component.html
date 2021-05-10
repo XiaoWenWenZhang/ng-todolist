@@ -1,11 +1,34 @@
-<nz-card class="task-card" [nzTitle]="task.title" [nzExtra]="deleteIconTemplate" (dblclick)= 'previewModalVisible = true'>
-    <pre >{{task.content}}</pre>
+<nz-card
+    class="task-card" 
+    [nzTitle]="task.title" 
+    [nzExtra]="deleteIconTemplate" 
+    (dblclick)= 'previewModalVisible = true'>
+    <pre >
+        {{task.content}}
+    </pre>
 </nz-card>
 
 <ng-template #deleteIconTemplate let-row>
-    <i nz-icon nzType="close" nzTheme="outline" (click)='deleteModalVisible=true'></i>
+    <i 
+        nz-icon 
+        nzType="close" 
+        nzTheme="outline" 
+        (click)='deleteModalVisible=true'>
+    </i>
 </ng-template>
 
-<app-delete-modal *ngIf = 'deleteModalVisible' (ok)="confirmDelete()" (cancel)="cancelDelete()" [(deleteModalVisible)]='deleteModalVisible' [task]='task'></app-delete-modal>
+<app-delete-modal 
+    *ngIf = 'deleteModalVisible' 
+    (ok)="confirmDelete()" 
+    (cancel)="cancelDelete()" 
+    [(deleteModalVisible)]='deleteModalVisible' 
+    [task]='task'>
+</app-delete-modal>
 
-<app-preview-task *ngIf = 'previewModalVisible' (ok)="confirmPreview()" (cancel)="cancelPreview()" [(showVisible)] = 'previewModalVisible' [task] = 'task'></app-preview-task>
+<app-preview-task 
+    *ngIf = 'previewModalVisible' 
+    (ok)="confirmPreview()" 
+    (cancel)="cancelPreview()" 
+    [(showVisible)] = 'previewModalVisible' 
+    [task] = 'task'>
+</app-preview-task>

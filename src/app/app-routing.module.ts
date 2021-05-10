@@ -3,16 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-      path:'',
-      redirectTo:'todolist',pathMatch:'full'
+      path: '',
+      redirectTo: 'todolist', pathMatch: 'full'
     },
   {
-      path:'todolist',
-      loadChildren:()=>import('./models/todo-list-management/todo-list-management.module').then(m=>m.TodoListManagementModule)
+      path: 'todolist',
+      loadChildren: () => import('./models/todo-list-management/todo-list-management.module').then(m => m.TodoListManagementModule)
   },
   {
-      path:'**',
-      redirectTo:'todolist'
+      path: '**',
+      redirectTo: 'todolist'
     }
 ];
 

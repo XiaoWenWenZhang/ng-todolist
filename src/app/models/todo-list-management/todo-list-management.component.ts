@@ -16,28 +16,28 @@ export class TodoListManagementComponent implements OnInit, OnDestroy{
   createModalVisible = false;
   sharedMessageSubscription: Subscription;
   constructor(
-      private taskService: TaskService, 
+      private taskService: TaskService,
       private sharedMessageService: SharedMessageService,
       private nzMessageService: NzMessageService) {}
 
   ngOnInit(): void {
      this.queryTaskList();
      this.sharedMessageSubscription = this.sharedMessageService.getMessage().subscribe(res => {
-         if(res) {
+         if( res ) {
             this.queryTaskList();
-         }  
-     })
+         }
+     });
   }
 
   queryTaskList() {
-    this.taskService.queryTaskList().subscribe(res=>{
-        if(res.retCode === 200) {
+    this.taskService.queryTaskList().subscribe(res => {
+        if( res.retCode === 200 ) {
             this.taskData = res.data;
-                this.taskStatusList = Object.keys(TaskStatusMap).map(item=>({
-                    key: item,
-                    label: TaskStatusMap[item],
-                    values: this.taskData.filter(data => data.status === item),
-                }));
+            this.taskStatusList = Object.keys(TaskStatusMap).map(item => ({
+                key: item,
+                label: TaskStatusMap[item],
+                values: this.taskData.filter(data => data.status === item),
+            }));
         }else {
             this.nzMessageService.error(res.errorMsg || 'TodoList列表查询失败');
         }

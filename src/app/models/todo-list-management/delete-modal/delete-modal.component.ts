@@ -11,10 +11,10 @@ import { ITask, TaskService } from 'src/app/core/services/task.service';
 export class DeleteModalComponent {
     @Input() deleteModalVisible = false;
     @Input() task: ITask;
-    @Output() cancel  = new EventEmitter<boolean>(); 
+    @Output() cancel = new EventEmitter<boolean>();
     @Output() ok = new EventEmitter<boolean>();
     constructor(
-        private taskService: TaskService, 
+        private taskService: TaskService,
         private sharedMessageService: SharedMessageService,
         private nzMessageService: NzMessageService) { }
 
@@ -22,9 +22,9 @@ export class DeleteModalComponent {
         this.cancel.emit();
     }
 
-    deleteTask(){
+    deleteTask() {
         this.taskService.deleteTask(this.task.id).subscribe(res => {
-            if(res.retCode === 200) {
+            if( res.retCode === 200 ) {
                 this.ok.emit();
                 this.sharedMessageService.sendMessage(true);
                 this.nzMessageService.success('任务删除成功');

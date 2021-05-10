@@ -1,4 +1,9 @@
-<nz-modal nzWidth='800px' [nzTitle]="'task.preview' | translate" [(nzVisible)]="showVisible" (nzOnCancel)="concelCreateTask()" [nzFooter]='null'>
+<nz-modal 
+    nzWidth='800px' 
+    [nzTitle]="'task.preview' | translate" 
+    [(nzVisible)]="showVisible" 
+    (nzOnCancel)="concelCreateTask()" 
+    [nzFooter]='null'>
     <ng-container *nzModalContent>
         <div class="preview-body">
             <div class="preview-content">
@@ -10,7 +15,10 @@
                     {{'task.edit' | translate}}
                  </button>             
                 <nz-select class="status-select" [(ngModel)]="currentStatus">                 
-                    <nz-option *ngFor="let item of TaskStatusList" [nzValue]="item.key" [nzLabel]="item.label">
+                    <nz-option 
+                        *ngFor="let item of TaskStatusList" 
+                        [nzValue]="item.key" 
+                        [nzLabel]="item.label">
                     </nz-option>             
                 </nz-select>                  
                 <button nz-button nzType="primary" (click)='deleteModalVisible = true'>

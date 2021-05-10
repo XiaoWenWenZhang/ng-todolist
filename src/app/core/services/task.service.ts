@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 const URL_PREFIX = 'http://localhost:8082';
-const QUERY_TASK_LIST_URL =`${URL_PREFIX}/task/list`;
-const DELETE_TASK_URL =`${URL_PREFIX}/task/delete`;
+const QUERY_TASK_LIST_URL = `${URL_PREFIX}/task/list`;
+const DELETE_TASK_URL = `${URL_PREFIX}/task/delete`;
 const CREATE_TASK_URL = `${URL_PREFIX}/task/create`;
-const UPDATE_TASK_URL =`${URL_PREFIX}/task/update`;
+const UPDATE_TASK_URL = `${URL_PREFIX}/task/update`;
 export interface Response<T> {
     data: T;
     errorMsg: string;
@@ -28,13 +28,13 @@ export interface ITaskList {
 })
 export class TaskService {
 
-  constructor( private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
   queryTaskList(){
-      return this.http.post<Response<ITask[] | null >>(QUERY_TASK_LIST_URL,{});
+      return this.http.post<Response<ITask[] | null >>(QUERY_TASK_LIST_URL, {});
   }
 
   deleteTask(id: string){
-    return this.http.post<Response<void>>(DELETE_TASK_URL,{id});
+    return this.http.post<Response<void>>(DELETE_TASK_URL, {id});
   }
 
   createTask(task: ITask) {

@@ -1,10 +1,20 @@
-<nz-modal class="create-modal" nzWidth='600px' [nzTitle]=" modalTitle | translate" [(nzVisible)]="showVisible" (nzOnCancel)="handleShowVisible()" [nzFooter]='null'>
+<nz-modal 
+    class="create-modal" 
+    nzWidth='600px' 
+    [nzTitle]=" modalTitle | translate" 
+    [(nzVisible)]="showVisible" 
+    (nzOnCancel)="handleShowVisible()" 
+    [nzFooter]='null'>
     <ng-container *nzModalContent>
         <form class="create-task" nz-form [formGroup]="taskForm" >
             <nz-form-item class="item-name">
-              <nz-form-label  nzRequired >{{'task.name' | translate}}</nz-form-label>
+              <nz-form-label  nzRequired >
+                  {{'task.name' | translate}}
+              </nz-form-label>
               <nz-form-control  [nzErrorTip]="nameErrorTpl">
-                  <nz-input-group [nzSuffix]="nameSuffixTpl" class="ant-input-affix-wrapper-textarea-with-clear-btn">
+                  <nz-input-group 
+                  [nzSuffix]="nameSuffixTpl" 
+                  class="ant-input-affix-wrapper-textarea-with-clear-btn">
                     <textarea
                         nz-input
                         formControlName="name" 
@@ -13,9 +23,18 @@
                         [nzAutosize]="{ minRows: 1, maxRows: 2 }"
                     ></textarea>
                   </nz-input-group>
-                  <div class="input-length">{{taskForm.value.name?.length || 0}}/{{ Max_Name_Len }}</div>      
+                  <div class="input-length">
+                      {{taskForm.value.name?.length || 0}}/{{ MAX_NAME_LEN }}
+                  </div>      
                   <ng-template #nameSuffixTpl>
-                      <i nz-icon class="ant-input-clear-icon" nzTheme="fill" nzType="close-circle" *ngIf="name" (click)="name = ''"></i>
+                      <i 
+                        nz-icon 
+                        class="ant-input-clear-icon" 
+                        nzTheme="fill" 
+                        nzType="close-circle" 
+                        *ngIf="name" 
+                        (click)="name = ''">
+                      </i>
                   </ng-template>
                   <ng-template #nameErrorTpl let-control>
                       <ng-container *ngIf="control.hasError('required')">
@@ -28,9 +47,13 @@
               </nz-form-control>
             </nz-form-item>
             <nz-form-item class="item-content">
-              <nz-form-label nzRequired >{{'task.content' | translate}}</nz-form-label>
+              <nz-form-label nzRequired >
+                  {{'task.content' | translate}}
+              </nz-form-label>
               <nz-form-control [nzErrorTip]="contentErrorTpl">
-                  <nz-input-group [nzSuffix]="contentSuffixTpl" class="ant-input-affix-wrapper-textarea-with-clear-btn">
+                  <nz-input-group 
+                    [nzSuffix]="contentSuffixTpl" 
+                    class="ant-input-affix-wrapper-textarea-with-clear-btn">
                       <textarea
                           nz-input
                           formControlName="content" 
@@ -39,9 +62,18 @@
                           [nzAutosize]="{ minRows: 1, maxRows: 8 }"
                       ></textarea>
                   </nz-input-group>
-                  <div class="input-length">{{taskForm.value.content?.length || 0}}/{{ Max_Content_Len }}</div>  
+                  <div class="input-length">
+                      {{taskForm.value.content?.length || 0}}/{{ MAX_CONTENT_LEN }}
+                  </div>  
                   <ng-template #contentSuffixTpl>
-                      <i nz-icon class="ant-input-clear-icon" nzTheme="fill" nzType="close-circle" *ngIf="content" (click)="content = ''"></i>
+                      <i 
+                        nz-icon 
+                        class="ant-input-clear-icon" 
+                        nzTheme="fill" 
+                        nzType="close-circle" 
+                        *ngIf="content" 
+                        (click)="content = ''">
+                      </i>
                   </ng-template>
                   <ng-template #contentErrorTpl let-control>
                     <ng-container *ngIf="control.hasError('required')">
@@ -55,8 +87,19 @@
             </nz-form-item>
             <nz-form-item nz-row class="btn-group">
               <nz-form-control>
-                <button nz-button nzType="primary" (click)='createTask()' [disabled]='!taskForm.valid'>{{'task.sure' | translate}}</button>
-                <button nz-button nzType="default" (click)='handleShowVisible()'>{{'task.concel' | translate}}</button>
+                <button 
+                    nz-button 
+                    nzType="primary" 
+                    (click)='createTask()' 
+                    [disabled]='!taskForm.valid'>
+                    {{'task.sure' | translate}}
+                </button>
+                <button 
+                    nz-button 
+                    nzType="default" 
+                    (click)='handleShowVisible()'>
+                    {{'task.concel' | translate}}
+                </button>
               </nz-form-control>
             </nz-form-item>
         </form>
