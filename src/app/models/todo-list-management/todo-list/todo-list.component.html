@@ -1,6 +1,14 @@
 <div class="todo-list">
     <div class="title">{{tasks.label}}</div>
     <div class="card-list">
-        <app-card *ngFor="let task of tasks.values" [task]='task'></app-card>
+        <ng-container *ngIf = 'tasks.values.length; else nodataTpl'>
+            <app-card *ngFor="let task of tasks.values" [task]='task'></app-card>
+        </ng-container>
+        <ng-template #nodataTpl>
+            <div class="nodata-message">
+                {{'task.noData' | translate}}
+            </div>
+        </ng-template>
+        
     </div>
 </div>

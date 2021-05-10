@@ -19,5 +19,6 @@
     "task.concel": "Concel",
     "task.deleteSuccess": "Task deleted successfully",
     "task.chinese": "Chinese",
-    "task.english": "English"
+    "task.english": "English",
+    "task.noData": "No data is available"
 }
